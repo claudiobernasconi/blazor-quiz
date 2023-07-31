@@ -1,0 +1,30 @@
+﻿@page "/"
+<PageTitle>Blazor Quiz</PageTitle>
+
+<h1>Blazor Quiz</h1>
+<p style="margin-bottom: 24px">Welcome to the Blazor Quiz!</p>
+
+<h2>Questions</h2>
+<Question 
+    Title="Does Blazor support event callbacks?" 
+    AnswerA="Yes" 
+    AnswerB="No"
+    OnAnswerSelected="@AnswerSelected" />
+
+<p>The user pressed: @State</p>
+
+@code {
+    public string State { get; set; } = "Nothing";
+
+    public void AnswerSelected(QuizAnswer answer)
+    {
+        if( answer == QuizAnswer.AnswerA)
+        {
+            State = "A";
+        }
+        else if( answer == QuizAnswer.AnswerB)
+        {
+            State = "B";
+        }
+    }
+}
